@@ -5,10 +5,12 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRESQL_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
-      POSTGRES_DB: task_manager_db
+      POSTGRES_DB: ${POSTGRESQL_DB_NAME}
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
 volumes:
   db_data:
+
+# Run me like this docker compose -f docker-compose.postgresql_db.yml up -d
