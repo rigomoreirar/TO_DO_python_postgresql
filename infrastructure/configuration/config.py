@@ -1,14 +1,13 @@
-import os
-from dotenv import load_dotenv
+from infrastructure.utilities.config_loader import ConfigLoader
 
-load_dotenv()
+config_loader = ConfigLoader()
 
 DATABASE_CONFIG = {
-    'host': os.getenv('POSTGRESQL_DB_HOST'),
-    'port': os.getenv('POSTGRESQL_DB_PORT'),
-    'dbname': os.getenv('POSTGRESQL_DB_NAME'),
-    'user': os.getenv('POSTGRESQL_USERNAME'),
-    'password': os.getenv('POSTGRESQL_PASSWORD'),
+    'host': config_loader.get('POSTGRESQL_DB_HOST'),
+    'port': config_loader.get('POSTGRESQL_DB_PORT'),
+    'dbname': config_loader.get('POSTGRESQL_DB_NAME'),
+    'user': config_loader.get('POSTGRESQL_USERNAME'),
+    'password': config_loader.get('POSTGRESQL_PASSWORD'),
 }
 
 if __name__ == '__main__':
