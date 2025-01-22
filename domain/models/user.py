@@ -1,6 +1,4 @@
-from dataclasses import dataclass
-
-@dataclass
 class User:
-    email: str
-    password_hash: str
+    def __init__(self, email: str, password_hash: str = None):
+        self.email = email
+        self.password_hash = password_hash
